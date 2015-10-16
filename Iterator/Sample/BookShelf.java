@@ -2,17 +2,17 @@ import java.util.*;
 
 public class BookShelf implements Aggregate {
     private ArrayList<Book> books;
-    public BookShelf() {
-        this.books = new ArrayList<Book>();
+    public BookShelf(int initialsize) {
+        this.books = new ArrayList<>(initialsize);
     }
     public Book getBookAt(int index) {
         return books.get(index);
     }
     public void appendBook(Book book) {
-        this.books.add(book);
+        books.add(book);
     }
     public int getLength() {
-        return last.size();
+        return books.size();
     }
     public Iterator iterator() {
         return new BookShelfIterator(this);
