@@ -10,5 +10,7 @@ public class Main {
         card1.use();
         card2.use();
         card3.use();
+        // IDCardFactoryクラスのgetOwnersメソッドを使う実験
+        System.out.println(((IDCardFactory)factory).getOwners());
     }
 }
