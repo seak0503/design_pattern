@@ -2,14 +2,12 @@ package idcard;
 import framework.*;
 
 public class IDCard extends Product {
-    private static int cache = 0;
-    private int serial;
     private String owner;
-    IDCard(String owner) {
-        System.out.println(owner + "のカードを作ります。");
-        this.serial = cache;
+    private int serial;
+    IDCard(String owner, int serial) {
+        System.out.println(owner + "(" + serial + ")" + "のカードを作ります。");
         this.owner = owner;
-        cache++;
+        this.serial = serial;
     }
     public void use() {
         System.out.println(owner + "のカードを使います。");

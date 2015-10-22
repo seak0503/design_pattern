@@ -10,6 +10,6 @@ public class Main {
         card1.use();
         card2.use();
         card3.use();
-        System.out.println(((IDCardFactory)factory).getOwners());
+        System.out.println(((IDCardFactory)factory).getDatabase());
     }
 }
