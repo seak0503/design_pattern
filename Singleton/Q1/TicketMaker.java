@@ -6,7 +6,7 @@ public class TicketMaker {
     public static TicketMaker getInstance() {
         return singleton;
     }
-    public int getNextTicketNumber() {
+    public synchronized int getNextTicketNumber() {
         return ticket++;
     }
 }
