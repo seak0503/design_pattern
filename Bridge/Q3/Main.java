@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Display d1 = new Display(new DecoDisplayImpl('<', '*', '>'));
-        CountCountDisplay d2 = new CountCountDisplay(new DecoDisplayImpl('<', '*', '>'));
-        d1.display();
-        d2.multiMultiDisplay(5);
+        IncreaseDisplay d1 = new IncreaseDisplay(new DecoDisplayImpl('<', '*', '>'), 1);
+        IncreaseDisplay d2 = new IncreaseDisplay(new DecoDisplayImpl('|', '#', '-'), 2);
+        d1.increaseDisplay(4);
+        d2.increaseDisplay(6);
     }
 }
