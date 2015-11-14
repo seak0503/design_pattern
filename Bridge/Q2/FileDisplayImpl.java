@@ -3,31 +3,36 @@ import java.io.*;
 public class FileDisplayImpl extends DisplayImpl {
     private String filename;
     private BufferedReader reader;
+    private final int MAX_READAHEAD_LIMIT = 4096;
     public FileDisplayImpl(String filename) {
         this.filename = filename;
     }
     public void rawOpen() {
         try {
             reader = new BufferedReader(new FileReader(filename));
-        } catch (FileNotFoundException e) {
+            reader.mark(MAX_READAHEAD_LIMIT);
+        } catch (IOException e) {
             System.out.println(filename + "が見つかりません。");
         }
+        System.out.println("=-=-=-=-=-= " + filename + " =-=-=-=-=-=");
     }
     public void rawPrint() {
         try {
             String line;
+            reader.reset();
             while((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
     public void rawClose() {
+        System.out.println("=-=-=-=-=-= ");
         try {
             reader.close();
         } catch (IOException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
