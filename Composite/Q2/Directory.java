@@ -21,6 +21,7 @@ public class Directory extends Entry {
     }
     public Entry add(Entry entry) {
         directory.add(entry);
+        entry.parent = this;
         return this;
     }
     protected void printList(String prefix) {
@@ -29,16 +30,6 @@ public class Directory extends Entry {
         while (it.hasNext()) {
             Entry entry = (Entry)it.next();
             entry.printList(prefix + "/" + name);
-        }
-    }
-    protected void printPath(String prefix, String pathName) {
-        if (pathName == name) {
-            System.out.println(prefix + "/" + name);
-        }
-        Iterator it = directory.iterator();
-        while (it.hasNext()) {
-            Entry entry = (Entry)it.next();
-            entry.printPath(prefix + "/" + name, pathName);
         }
     }
 }

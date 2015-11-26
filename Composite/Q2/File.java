@@ -14,9 +14,4 @@ public class File extends Entry {
     protected void printList(String prefix) {
         System.out.println(prefix + "/" + this);
     }
-    protected void printPath(String prefix, String pathName) {
-        if (pathName == name) {
-            System.out.println(prefix + "/" + name);
-        }
-    }
 }
