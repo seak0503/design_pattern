@@ -8,7 +8,7 @@ public class MultiStringDisplay extends Display {
         updateColumn(string);
     }
     public int getColumns() {
-        return maxlength;
+        return maxlength * 2;
     }
     public int getRows() {
         return strings.size();
@@ -17,11 +17,11 @@ public class MultiStringDisplay extends Display {
         return strings.get(row);
     }
     private void updateColumn(String string) {
-        if (string.getBytes().length > maxlength) {
-            maxlength = string.getBytes().length;
+        if (string.length() > maxlength) {
+            maxlength = string.length();
         }
         for (int row = 0; row < strings.size(); row++) {
-            int fills = maxlength - (strings.get(row)).getBytes().length;
+            int fills = maxlength - (strings.get(row)).length();
             if (fills > 0) {
                 strings.set(row, strings.get(row) + spaces(fills));
             }
@@ -30,7 +30,7 @@ public class MultiStringDisplay extends Display {
     private String spaces(int count) {
         StringBuffer buf = new StringBuffer();
         for (int i = 0; i < count; i++) {
-            buf.append(' ');
+            buf.append("　");
         }
         return buf.toString();
     }
