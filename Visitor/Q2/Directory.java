@@ -12,7 +12,7 @@ public class Directory extends Entry {
     }
     public int getSize() {
         SizeVisitor sizevisitor = new SizeVisitor();
-        sizevisitor.visit(this);
+        accept(sizevisitor);
         return sizevisitor.getCurrentsize();
     }
     public Entry add(Entry entry) {
