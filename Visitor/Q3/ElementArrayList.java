@@ -5,7 +5,7 @@ public class ElementArrayList extends ArrayList implements Element {
     public void accept(Visitor v) {
         Iterator it = this.iterator();
         while (it.hasNext()) {
-            Entry entry = (Entry)it.next();
+            Element entry = (Element)it.next();
             entry.accept(v);
         }
     }
