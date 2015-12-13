@@ -3,21 +3,21 @@ import java.util.ArrayList;
 public abstract class Support {
     private String name;
     private Support next;
-    private ArrayList<Support> slist = new ArrayList<>();
     public Support(String name) {
         this.name = name;
     }
     public Support setNext(Support next) {
-        slist.add(next);
-        return this;
+        this.next = next;
+        return next;
     }
     public void support(Trouble trouble) {
-        for (int i = 0; i < slist.size(); i++) {
-            if (slist.get(i).resolve(trouble)) {
-                slist.get(i).done(trouble);
+        for (Support obj = this; true; obj = obj.next) {
+            if (obj.resolve(trouble)) {
+                obj.done(trouble);
                 break;
-            } else if (i + 1 == slist.size()) {
-                fail(trouble);
+            } else if (obj.next == null) {
+                obj.fail(trouble);
+                break;
             }
         }
     }
