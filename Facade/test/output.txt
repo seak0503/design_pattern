@@ -1,0 +1,5 @@
+-- listing properties --
+hanako@hyuki.com=Hanako Sato
+mamoru@hyuki.com=Mamoru Takahashi
+hyuki@hyuki.com=Hiroshi Yuki
+tomura@hyuki.com=Tomura
