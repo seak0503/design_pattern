@@ -3,6 +3,7 @@ package pagemaker;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Enumeration;
 
 public class PageMaker {
     private PageMaker() {
@@ -24,13 +25,13 @@ public class PageMaker {
     }
     public static void makeLinkPage(String filename) {
         try {
-            Properties mailprop = Database.getProperties("maildata");
-            Object[] addrs = mailprop.keySet().toArray();
             HtmlWriter writer = new HtmlWriter(new FileWriter(filename));
             writer.title("Link page");
-            for (int i = 0; i < addrs.length; i++) {
-                String mailaddr = (String)addrs[i];
-                String username = mailprop.getProperty(mailaddr);
+            Properties mailprop = Database.getProperties("maildata");
+            Enumeration en = mailprop.propertyNames();
+            while (en.hasMoreElements()) {
+                String mailaddr = (String)en.nextElement();
+                String username = mailprop.getProperty(mailaddr, "(unknown)");
                 writer.mailto(mailaddr, username);
             }
             writer.close();

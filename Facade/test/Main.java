@@ -6,8 +6,7 @@ public class Main {
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream("maildata.txt"));
-            Object[] list = prop.keySet().toArray();
-            String test = (String)list[0];
+            System.out.println(prop.propertyNames());
         } catch (Exception e) {
             System.out.println("error");
         }
