@@ -14,7 +14,7 @@ public class Memento {
     void addFruit(String fruit) {
         fruits.add(fruit);
     }
-    List getFruits() {
+    List<String> getFruits() {
         return (List)fruits.clone();
     }
 }

@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Gamer {
     private int money;
-    private List<String> fruits = new ArrayList();
+    private List<String> fruits = new ArrayList<>();
     private Random random = new Random();
     private static String[] fruitsname = {
         "リンゴ", "ぶどう", "バナナ", "みかん",
