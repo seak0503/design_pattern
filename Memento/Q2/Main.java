@@ -10,14 +10,12 @@ public class Main {
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
                     Memento memento = (Memento) ois.readObject();
                     Gamer gamer = new Gamer(memento.getMoney());
-                    System.out.println("ファイルあり");
                     game(gamer, memento, file);
             } catch (IOException | ClassNotFoundException e) {
             }
         } else {
             Gamer gamer = new Gamer(100);
             Memento memento = gamer.createMemento();
-            System.out.println("ファイルなし");
             game(gamer, memento, file);
         }
     }
@@ -42,10 +40,6 @@ public class Main {
                 gamer.restoreMemento(memento);
             }
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
             System.out.println("");
         }
     }
