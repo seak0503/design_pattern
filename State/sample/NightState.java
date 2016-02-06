@@ -6,7 +6,7 @@ public class NightState implements State {
         return singleton;
     }
     public void doClock(Context context, int hour) {
-        if (9 <= hour || hour < 17)  {
+        if (9 <= hour && hour < 17)  {
             context.changeState(DayState.getInstance());
         }
     }
@@ -20,6 +20,6 @@ public class NightState implements State {
         context.recordLog("夜間の通話録音");
     }
     public String toString() {
-        return "[昼間]";
+        return "[夜間]";
     }
 }
